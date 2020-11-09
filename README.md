@@ -25,3 +25,18 @@ Bold values mean Default
 - threshold_section: defines which section is used to cut the dictionary. Values: **'first'** (only the first section), 'all' (threshold is applied to the full text), _int_: the index of the chosen section.
 - init_books_seq: order of input documents. Values: **'normal'** (the same order as read from the disk), 'random' (randomized order), _list_: list with the index of the documents. If len(_list_) < len(books), only the documents denoted by _list_ will be taken into account.
 - punct: list of punctuation for single items (word mode only). Values: _string_ or _list_. Default: "'.,!?«»:;()[]-\""
+
+## Methods:
+#### get_chunk: returns a chunk of text from the corpus. 
+Parameters:
+- chunk_len: textual chunk length (_int_). Default: 30
+- chunk_mode: defines the modality for getting the textual chunk. If **'normal'** it selects the chunk with _book_sel_ and _chunk_sel_ parames (see later). If 'sequential', the chunk is selected sequentially every time the same modality is called. If 'random', the chunk is chosen randomly.
+- book_sel: when chunk_mode is 'normal', defines the document to get the chunk from.
+- chunk_sel: when chunk_mode is 'normal', defines the chunk starting point in the selected document.
+- padding: when chunk_mode is 'sequential', defines how may steps foward the next chunk will be taken. Default 0 (full chunk padding).
+
+
+
+
+## Examples:
+See corpy.ipynb Jupyter notebook.
