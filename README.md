@@ -33,10 +33,23 @@ Parameters:
 - chunk_mode: defines the modality for getting the textual chunk. If **'normal'** it selects the chunk with _book_sel_ and _chunk_sel_ parames (see later). If 'sequential', the chunk is selected sequentially every time the same modality is called. If 'random', the chunk is chosen randomly.
 - book_sel: when chunk_mode is 'normal', defines the document to get the chunk from.
 - chunk_sel: when chunk_mode is 'normal', defines the chunk starting point in the selected document.
-- padding: when chunk_mode is 'sequential', defines how may steps foward the next chunk will be taken. Default 0 (full chunk padding).
+- padding: when chunk_mode is 'sequential', defines how many steps foward the next chunk will start. Default 0 (full chunk length padding).
+- last_element: if True, the chunk length is chunk_len+1, but it doesn't affect the padding.
+- output_mode: defines the type of output chunk. It can be: 'item' as a list of sequential words or characters (depending on the Corpy mode); 'string' as a concatenated string of items; **'code'** as a list of numbers defined by the items dictionary.
+-  section: the section where the chunk is taken from.
+-  unk: the symbol used for Unkown items. In case of output_mode='code': it can be  **'max'**: insert the code=max item, or  'none': insert None.  In case of output_mode='item' or 'string': insert the passed string.
+
+#### reset_counter: resets the counter in 'sequential' mode.
+Parameters:
+- section: it can be **'all'**, it resets to 0 all the sections, or a _int_ defining the section to reset.
+
+#### save: saves the Corpy object in a pickle file.
+Parameters:
+- namefile: path and file name for saving data. If it is an empty string (default), a unique file name is set.
 
 
-
+## Other functions:
+#### load_corpy(filename): load a pikle Corpy file and returns a Corpy object.
 
 ## Examples:
 See corpy.ipynb Jupyter notebook.
