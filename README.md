@@ -49,7 +49,8 @@ Parameters:
 
 
 ## Other functions:
-#### load_corpy(filename): load a pikle Corpy file and returns a Corpy object.
+#### load_corpy(filename)
+load a pikle Corpy file and returns a Corpy object.
 
 ## Examples:
 See corpy.ipynb Jupyter notebook.
