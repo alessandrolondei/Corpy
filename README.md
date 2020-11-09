@@ -8,9 +8,9 @@ Corpy is a simple manager for textual corpora written in Python
 - Different modalities to get textual chunks
 
 ## Usage
-Corpy is a class requiring at least a vaid path containing txt documents when created.
+Corpy is a class requiring a list of textual documents at the input.
 
-``` corpus = Corpy('./texts') ```
+``` corpus = Corpy(_list_of_texts_) ```
 
 creates a textual corpus by reading all the files contained in the './texts' folder.
 
