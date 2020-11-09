@@ -14,4 +14,6 @@ Corpy is a class requiring at least a vaid path containing txt documents when cr
 
 creates a textual corpus by reading all the files contained in the './texts' folder.
 
+### Parameters
+- one_document: concatenates all the documents into one (space separator). Vaues: True, *False*
 
