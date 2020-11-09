@@ -1,4 +1,3 @@
-import glob
 import pickle
 import collections
 import copy
@@ -19,7 +18,7 @@ class Corpy():
         self.text_sections       = kwargs.get('text_sections',       (1,)    ) # tuple or list: (train, valid, test, ...)
         self.text_sections_level = kwargs.get('text_sections_level', 'item'  ) # 'book' or 'item'
         self.init_books_seq      = kwargs.get('init_books_seq',      'normal') # 'normal', 'random' or sequence list
-        self.punct               = kwargs.get('punct',                "'.,!?«»:;()[]-"   ) # list or string of punctuation to divide words
+        self.punct               = kwargs.get('punct',                "'.,!?«»:;()[]-\""   ) # list or string of punctuation to divide words
         
         
         self.ind_books = np.arange(len(books))
