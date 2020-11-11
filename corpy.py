@@ -207,27 +207,28 @@ class Corpy():
             section_k = 0
             temp_len = 0
             for kb, b in enumerate(self.books_list_of_items):
-                if len(b) + temp_len < number_of_items_per_section[section_k]:
-                    self.sections_book[section_k].append(kb)
-                    self.sections_text[section_k].append([0, len(b)])
-                    temp_len += len(b)
-                else:
-                    if (number_of_items_per_section[section_k] - temp_len) > int(len(b) * 0.75):
+                if section_k < len(number_of_items_per_section):
+                    if len(b) + temp_len < number_of_items_per_section[section_k]:
                         self.sections_book[section_k].append(kb)
                         self.sections_text[section_k].append([0, len(b)])
-                        section_k += 1
-                        temp_len = 0
-                        if len(self.sections_book) < len(self.text_sections):
-                            self.sections_book.append([])
-                            self.sections_text.append([])
+                        temp_len += len(b)
                     else:
-                        if len(self.sections_book) < len(self.text_sections):
-                            self.sections_book.append([])
-                            self.sections_text.append([])
-                            section_k += 1
+                        if (number_of_items_per_section[section_k] - temp_len) > int(len(b) * 0.75):
                             self.sections_book[section_k].append(kb)
                             self.sections_text[section_k].append([0, len(b)])
-                            temp_len = len(b)
+                            section_k += 1
+                            temp_len = 0
+                            if len(self.sections_book) < len(self.text_sections):
+                                self.sections_book.append([])
+                                self.sections_text.append([])
+                        else:
+                            if len(self.sections_book) < len(self.text_sections):
+                                self.sections_book.append([])
+                                self.sections_text.append([])
+                                section_k += 1
+                                self.sections_book[section_k].append(kb)
+                                self.sections_text[section_k].append([0, len(b)])
+                                temp_len = len(b)
             
             for k, sb in enumerate(self.sections_book):
                 if sb == []:
